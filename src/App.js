@@ -71,7 +71,6 @@ export default function App() {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (page === "chat" && messages.length === 0) {
       const catLabel = scholarshipCategories.find(c => c.id === activeCategory)?.label || "all";
@@ -83,8 +82,7 @@ export default function App() {
           : `Hello **${currentUser?.username}**! 👋 I'm your scholarship assistant. You're exploring **${catLabel}** scholarships.\n\nAsk me anything — I'll search through curated data to find the best matches!`,
       }]);
     }
-  }, [page]);
-
+  }, [page]); // eslint-disable-line react-hooks/exhaustive-deps
   // ── BUILD CONTEXT from user profile ────────────────────────────
   const buildContext = () => {
     const p = currentUser?.profile;
