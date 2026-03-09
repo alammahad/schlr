@@ -71,6 +71,7 @@ export default function App() {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (page === "chat" && messages.length === 0) {
       const catLabel = scholarshipCategories.find(c => c.id === activeCategory)?.label || "all";
